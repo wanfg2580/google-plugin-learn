@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "jimmy‘s自动填写百度云验证码",
+  "icons": {
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "homepage_url": "https://www.baidu.com",
+  "name": "百度云各种功能demo",
+  "short_name": "百度云各种功能demo",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "web_accessible_resources": ["img/icon-820.png"],
+  "content_scripts": [{
+    "run_at": "document_start",
+    "matches": ["*://pan.baidu.com/*", "*://yun.baidu.com/*"],
+    "js": ["core.js"],
+    "all_frames": true
+  }]
+}
