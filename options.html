@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>coin price helper</title>
+    <style>
+        body {
+            min-width: 300px;
+            font-size: 15px;
+        }
+
+        input {
+            margin: 5px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="displayWords"></ul>
+<form id="form">
+    <select id="coinlist" name="select">
+    </select>
+    <select id="convertlist" name="select">
+        <option value="BTC">BTC</option>
+        <option value="ETH">ETH</option>
+        <option value="LTC">LTC</option>
+        <option value="BCH">BCH</option>
+        <option value="CNY">CNY</option>
+        <option value="AUD">AUD</option>
+        <option value="EUR">EUR</option>
+        <option value="HKD">HKD</option>
+    </select>
+    <br>
+</form>
+<button id='coinSubmit'>commit</button>
+<button id="clearList">clear</button>
+</body>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/options.js"></script>
+</html>

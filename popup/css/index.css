@@ -1,0 +1,99 @@
+/* Layout */
+
+html, body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-width: 12em;
+}
+
+/* Menu */
+
+.cph-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cph-nav-item {
+    display: block;
+    margin: 2px 0;
+}
+
+.cph-nav-item > a > .glyphicon {
+    margin-right: 8px;
+}
+
+.cph-nav-item > a {
+    display: block;
+    padding: 5px 25px 5px 8px;
+    border-radius: 4px;
+    line-height: 1.5em;
+    font-size: 1em;
+    color: #337ab7;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.cph-nav-item > a:hover {
+    text-decoration: none;
+    background-color: #eee;
+}
+.cph-nav-item > a:hover {
+    color: #23527c;
+}
+
+/* Glyphicons */
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-transfer:before {
+    content: "\e178";
+}
+.glyphicon-off:before {
+    content: "\e017";
+}
+.glyphicon-warning-sign:before {
+    content: "\e107";
+}
+.glyphicon-file:before {
+    content: "\e022"
+}
+.glyphicon-globe:before {
+    content: "\e135"
+}
+.glyphicon-question-sign:before {
+    content: "\e085"
+}
+.glyphicon-list:before {
+    content: "\e056"
+}
+.glyphicon-retweet:before {
+    content: "\e115"
+}
+.glyphicon-plus:before {
+    content: "\2b"
+}
+.glyphicon-filter:before {
+    content: "\e138"
+}
+.glyphicon-wrench:before {
+    content: "\e136"
+}
+.glyphicon-chevron-down:before {
+    content: "\e114";
+}
