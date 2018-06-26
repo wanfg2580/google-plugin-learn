@@ -22,19 +22,32 @@ let coinList = function () {
     });
 };
 
-function displayWords() {
+let remove = function (index) {
     chrome.storage.local.get(['coin'], function (object) {
-        let pageList = document.getElementById('displayWords');
+        let coinData = object.coin || [];
+        coinData.splice(index, 1);
+        chrome.storage.local.set({coin: coinData});
+    });
+    displayWords()
+};
+
+let displayWords = function () {
+    console.log("display")
+    chrome.storage.local.get(['coin'], function (object) {
+        let display = $('#displayList');
         if (object.coin) {
+            console.log("coin");
             searchWords = object.coin;
+            console.log(searchWords);
+            let html = "";
             for (let i = 0; i < searchWords.length; i++) {
                 let listItem = document.createElement('li');
-                listItem.innerText = searchWords[i].convert_type;
-                pageList.appendChild(listItem);
+                html += "<li>" + searchWords[i].coin_name + "\\" + searchWords[i].convert_type + "<span><button onclick='remove(i)'>remove</button></span></spN></li>";
             }
+            display.html(html);
         }
     });
-}
+};
 
 document.getElementById('coinSubmit').onclick = function () {
     let coin_id = $('#coinlist option:selected').val();
@@ -51,9 +64,12 @@ document.getElementById('coinSubmit').onclick = function () {
         );
         chrome.storage.local.set({coin: coinData});
     });
-    chrome.tabs.executeScript(null, {
-        file: 'static/js/content_script.js'
-    });
+    // chrome.tabs.executeScript(null, {
+    //     file: 'static/js/content_script.js'
+    // });
+    setTimeout('displayWords()',1000 *5);
+    displayWords();
+    console.log("get")
 };
 
 document.getElementById('clearList').onclick = function () {
