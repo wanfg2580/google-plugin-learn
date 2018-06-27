@@ -27,27 +27,28 @@ let remove = function (index) {
         let coinData = object.coin || [];
         coinData.splice(index, 1);
         chrome.storage.local.set({coin: coinData});
+        displayWords();
     });
-    displayWords()
 };
 
 let displayWords = function () {
-    console.log("display")
     chrome.storage.local.get(['coin'], function (object) {
         let display = $('#displayList');
         if (object.coin) {
-            console.log("coin");
             searchWords = object.coin;
-            console.log(searchWords);
             let html = "";
             for (let i = 0; i < searchWords.length; i++) {
                 let listItem = document.createElement('li');
-                html += "<li>" + searchWords[i].coin_name + "\\" + searchWords[i].convert_type + "<span><button onclick='remove(i)'>remove</button></span></spN></li>";
+                html += "<li>" + searchWords[i].coin_name + "\\" + searchWords[i].convert_type + "<span><button id='" + i + "aaaaa'>remove</button></span></spN></li>";
             }
             display.html(html);
         }
     });
 };
+
+$("#displayList").on("click","li button",function(){      //只需要找到你点击的是哪个ul里面的就行
+    remove($(this)[0].id)
+});
 
 document.getElementById('coinSubmit').onclick = function () {
     let coin_id = $('#coinlist option:selected').val();
@@ -63,13 +64,11 @@ document.getElementById('coinSubmit').onclick = function () {
             }
         );
         chrome.storage.local.set({coin: coinData});
+        displayWords();
     });
     // chrome.tabs.executeScript(null, {
     //     file: 'static/js/content_script.js'
     // });
-    setTimeout('displayWords()',1000 *5);
-    displayWords();
-    console.log("get")
 };
 
 document.getElementById('clearList').onclick = function () {

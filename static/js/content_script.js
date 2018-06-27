@@ -28,8 +28,8 @@ let initPage = function () {
 };
 
 let lastPriceGet = function() {
-    setTimeout('lastPriceGet()',60 * 1000);
     getCoinPrice();
+    setTimeout('lastPriceGet()', 60 * 1000);
 };
 
 initPage();
